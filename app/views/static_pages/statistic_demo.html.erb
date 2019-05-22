@@ -1,0 +1,184 @@
+<% provide(:title, '量化统计') %>
+<h2>各城区主要类别统计</h2>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <!-- <script src="echarts.min.js"></script> -->
+</head>
+
+<body style="margin:0">
+
+    
+    <div id="stat" style="width: 1150px;height:720px;margin-left:auto;margin-right:auto">
+        
+        <script type="text/javascript">
+            var statChart = echarts.init(document.getElementById('stat'));
+
+            var district_name = ['海淀区','西城区','东城区','朝阳区','大兴区','丰台区'];
+            
+            var dis_dataset = {
+                    '西城区': {
+                        'road': 0.083605,
+                        'building': 0.142588,
+                        'wall': 0.042639,
+                        'vegetation': 0.151375,
+                        'sky': 0.03284,
+                        'person': 0.036934,
+                        'car': 0.048566,
+                        'bicycle': 0.034626
+                    },
+                    '东城区': {
+                        'road': 0.078891,
+                        'building': 0.147456,
+                        'wall': 0.046668,
+                        'vegetation': 0.155136,
+                        'sky': 0.024261,
+                        'person': 0.039663,
+                        'car': 0.047643,
+                        'bicycle': 0.03066
+                    },
+                    '海淀区': {
+                        'road': 0.096657,
+                        'building': 0.140717,
+                        'wall': 0.03851,
+                        'vegetation': 0.201396,
+                        'sky': 0.03988,
+                        'person': 0.026139,
+                        'car': 0.048721,
+                        'bicycle': 0.030247
+                    },
+                    '丰台区': {
+                        'road': 0.094665,
+                        'building': 0.143634,
+                        'wall': 0.043887,
+                        'vegetation': 0.16043,
+                        'sky': 0.042009,
+                        'person': 0.023347,
+                        'car': 0.053175,
+                        'bicycle': 0.029636
+                    },
+                    '朝阳区': {
+                        'road': 0.102988,
+                        'building': 0.150575,
+                        'wall': 0.045004,
+                        'vegetation': 0.163156,
+                        'sky': 0.037852,
+                        'person': 0.021655,
+                        'car': 0.0534,
+                        'bicycle': 0.024185
+                    },
+                    '大兴区': {
+                        'road': 0.11533,
+                        'building': 0.1402,
+                        'wall': 0.03965,
+                        'vegetation': 0.16814,
+                        'sky': 0.052762,
+                        'person': 0.014818,
+                        'car': 0.050986,
+                        'bicycle': 0.01697
+                    }
+            };
+
+            var district_series = new Array();
+            var district_title = new Array();
+
+            var dis_grid = [2,3];
+            
+            var main_class_chinese = ['道路','楼房','植被','天空','行人','汽车','自行车','摩托车'];
+            var main_class = ['road','building','wall','vegetation','sky','person','car','bicycle'];
+
+            for(var i=0;i<district_name.length;i++)
+            {
+                district_series[i] = get_district_series(i,dis_grid); 
+                district_title[i] = get_district_title(i,dis_grid);
+            }
+            
+            
+            function get_district_series(now_dis,dis_grid)
+            {
+                x_coord = parseInt(now_dis/dis_grid[1]);
+                y_coord = now_dis%dis_grid[1];
+
+                var data_array = new Array();
+                for(var i=0;i<8;i++)
+                {
+                    data_array[i] = {value: dis_dataset[district_name[now_dis]][main_class[i]], name:main_class_chinese[i]} ;
+                }
+                return {
+                    type:'pie',
+                    roseType : 'area',
+                    radius : [40, 110],
+                    name: district_name[now_dis],
+                    //center : ['20.4%','40%'],
+                    center : [ String(100.0/(2*dis_grid[1])*(2*y_coord+1)).concat('%'),             String(100.0/(2*dis_grid[0])*(2*x_coord+1)).concat('%')],
+                    data: data_array
+                }
+            }
+            
+            function get_district_title(now_dis,dis_grid)
+            {
+                x_coord = parseInt(now_dis/dis_grid[1]);
+                y_coord = now_dis%dis_grid[1];
+                return {
+                    text: district_name[now_dis],
+                    x: String(100.0/(2*dis_grid[1])*(2*y_coord+1)).concat('%'),          y: String(100.0/(2*dis_grid[0])*(2*x_coord+1)).concat('%'),
+                    textAlign: 'center'
+                }
+            }
+            
+            option = {
+                title : {
+                    text: '南丁格尔玫瑰图',
+                    subtext: '纯属虚构',
+                    x:'center'
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    x : 'center',
+                    y : 'bottom',
+                    data:['道路','楼房','植被','天空','行人','汽车','自行车','摩托车']
+                },
+                title: district_title,
+
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {
+                            show: true,
+                            type: ['pie', 'funnel']
+                        },
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                
+                series : district_series
+            };
+        
+            statChart.setOption(option);
+            
+        </script>
+    </div>
+
+</body>
+
+</html>

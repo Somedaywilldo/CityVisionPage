@@ -1,0 +1,31 @@
+<% provide(:title, "编辑个人信息") %> <h1>更新你的个人信息</h1>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+<<<<<<< HEAD
+          <%= f.label :name,"姓名" %>
+          <%= f.text_field :name, class: 'form-control' %>
+           <%= f.label :email, "邮箱"%>
+          <%= f.email_field :email, class: 'form-control' %>
+         <%= f.label :password,"密码"%>
+          <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :password_confirmation,"确认密码"%>
+=======
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :password_confirmation, "Confirmation" %>
+>>>>>>> d10f7b4e112e410d4993ef7694d784f3a7b36142
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <%= f.submit "Save changes", class: "btn btn-primary" %> 
+        <% end %>
+<div class="gravatar_edit">
+<%= gravatar_for @user %>
+<a href="http://gravatar.com/emails">change</a>
+        </div>
+      </div>
+</div>

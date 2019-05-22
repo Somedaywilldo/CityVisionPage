@@ -1,0 +1,10 @@
+<h1>Someday实验室欢迎您！</h1>
+<p>嗨~ <%= @user.name %>,</p>
+<p>
+  欢迎来到Someday实验室，点击下方链接即可激活账户：
+</p>
+  <%= link_to "激活链接", edit_account_activation_url(@user.activation_token,email: @user.email) %>
+<p>
+  或者复制该链接到浏览器地址栏：<%=edit_account_activation_url(@user.activation_token,email: @user.email) %>
+
+</p>

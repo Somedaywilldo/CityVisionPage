@@ -1,0 +1,255 @@
+  <body>
+
+  <div class="container">
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+
+         <%= link_to image_tag("fisheyecity.jpeg", alt: "fisheyecity") %>
+         
+
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>城景视界</h1>
+              <h2>CityVision</h2>
+              <p>基于计算机视觉的大规模城市街景分析工具</p>
+
+              <p> <%= link_to "立即注册", signup_path, class: "btn btn-lg btn-primary" %> </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          
+         <%= link_to image_tag("semantic.jpg", alt: "semantic") %>
+         
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>项目简介</h1>
+              <p align="left">城景视界项目，是以腾讯街景开放平台为依托，利用深度学习语义分割算法，对城市中楼房、树木、行人、车辆等类别的事物分布进行分析，并使用深层神经网络、SVM分类器等手段分析城市风格特征。用于城市规划效果的量化评定和城市形象风貌管理。目前分析的城市有北京、上海、广州。
+              </p>
+             
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">开始使用</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+         
+         <%= link_to image_tag("newmainbuilding.jpg", alt: "newmainbuilding") %>
+         
+          <div class="container">
+            <div class="carousel-caption">
+              <h2>开发者</h2>
+
+              <div align="center">
+
+
+                <p align="left">
+                项目组长：尹一航 （北航计算机学院）</br>
+                小组成员：闫&nbsp;&emsp;坤 （北航软件学院）</br>
+                小组成员：林家桢 （北航计算机学院）</br>
+                小组成员：张少昂 （北航计算机学院）</br>
+                
+              </p>
+              <p align="left">
+                指导教师：王静远 （北航计算机学院副教授）</br>
+        指导教师：李&nbsp;&emsp;栋 （清华同衡规划院技术创新中心常务副主任）</br>
+          </p>
+
+              </div>
+              
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">联系我们</a></p>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+
+        <div class="col-lg-4">
+          
+
+          <img class="img-circle" src="/images/ico/ico_spider.png" alt="street view spider" width="140" height="140">
+
+          <h2>街景爬虫</h2>
+          <p align="left">使用百度街景、腾讯街景API和城市行政区划shapefile构建的街景图片爬虫模块。</p>
+          <p align="center"> <%= link_to "立即体验 >", spider_demo_Beijing_path, class: "btn btn-default" %> </p>
+
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <img class="img-circle" src="/images/ico/ico_semantic.png" alt="street view spider" width="140" height="140">
+
+          <h2>语义分割</h2>
+          <p align="left">语义分割模块使用深度学习框架Caffe下的语义分割模型ENet，带有GPU加速模式。分割后的街景图片为带label标记的单通道灰度图，具有行人、天空、树木等19个类别。</p>
+          <p align="center"> <%= link_to "技术详情 >", semantic_demo_path, class: "btn btn-default" %> </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="/images/ico/ico_density.png" alt="street view spider" width="140" height="140">
+
+          <h2>语义画像</h2>
+          <p align="left">统计不同粒度的街景元素平均比例，生成包含行人、天空、树木等19个类别的交互式语义图谱，可以用于城市规划效果的量化评估。</p>
+          <p align="center"> <%= link_to "立即体验 >", density_demo_path, class: "btn btn-default" %> </p>
+        </div><!-- /.col-lg-4 -->
+        
+      </div><!-- /.row -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="/images/ico/ico_statistic.png" alt="ico_statistic" width="140" height="140">
+          <h2>量化指标统计</h2>
+          <p align="left">基于语义和街景数据，对城市规划的量化指标进行统计和评估。</p>
+          <p align="center"> <%= link_to "立即体验 >", statistic_demo_path, class: "btn btn-default" %> </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="/images/ico/ico_problem.png" alt="Gico_problem" width="140" height="140">
+          <h2>规划问题检测</h2>
+          <p align="left">利用语义数据和目标检测算法，检测城市规划中存在的问题。</p>
+          <p align="center"> <%= link_to "立即体验 >", problem_demo_path, class: "btn btn-default" %> </p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <img class="img-circle" src="/images/ico/ico_style.png" alt="street view spider" width="140" height="140">
+          <h2>城市风格</h2>
+          <p align="left">利用每张图片的语义分割数据作为训练样本，提取不同城市的风貌特征，探索人对城市主观印象的量化本质。</p>
+          <p align="center"> <%= link_to "技术详情 >", style_demo_path, class: "btn btn-default" %> </p>
+        </div><!-- /.col-lg-4 -->
+        
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading"><span class="text-muted">尽收眼底：</span>街景爬虫</h2>
+          <p class="lead">使用百度街景、腾讯街景API和城市行政区划shapefile构建的街景图片爬虫模块。</p>
+          <p align="center"> <%= link_to "立即体验", spider_demo_Beijing_path, class: "btn btn-lg btn-primary" %> </p>
+        </div>
+        <div class="col-md-5">
+          <img src="/images/home/spider.png" alt="spider" width="500" height="500">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+        <h2 class="featurette-heading"><span class="text-muted">机器视觉：</span>语义分割</h2>
+        <p class="lead">语义分割模块使用深度学习框架Caffe下的语义分割模型ENet，带有GPU加速模式。分割后的街景图片为带label标记的单通道灰度图，具有行人、天空、树木等19个类别。</p>
+        <p align="center"> <%= link_to "技术详情", semantic_demo_path, class: "btn btn-lg btn-primary" %> </p>
+        </div>
+        <div class="col-md-5 col-md-pull-8">
+          <img src="/images/home/semantic.jpg" alt="spider" width="500" height="500">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading"><span class="text-muted">城市全景：</span>交互式语义画像</h2>
+          <p class="lead">统计不同粒度的街景元素平均比例，生成包含行人、天空、树木等19个类别的交互式语义图谱，可以用于城市规划效果的量化评估。</p>
+          <p align="center"> <%= link_to "立即体验", density_demo_path, class: "btn btn-lg btn-primary" %> </p>
+        </div>
+        <div class="col-md-5">
+
+          <img src="/images/home/density.png" alt="density_Map" width="500" height="500">
+
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+        <h2 class="featurette-heading"><span class="text-muted">以数观城：</span>量化指标统计</h2>
+          <p class="lead">基于语义和街景数据，对城市规划的量化指标进行统计和评估。</p>
+          <p align="center"> <%= link_to "立即体验", statistic_demo_path, class: "btn btn-lg btn-primary" %> </p>
+          </div>
+        <div class="col-md-5 col-md-pull-8">
+          <img src="/images/home/statistic.png" alt="density_Map" width="500" height="500">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading"><span class="text-muted">城市管理：</span>规划问题检测</h2>
+          <p class="lead">利用语义数据和目标检测算法，检测城市规划中存在的问题。</p>
+          <p align="center"> <%= link_to "技术详情", problem_demo_path, class: "btn btn-lg btn-primary" %> </p>
+          </div>
+        <div class="col-md-5">
+          <img src="/images/home/problem.png" alt="density_Map" width="500" height="500">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+        <h2 class="featurette-heading"><span class="text-muted">风貌形象：</span>城市风格</h2>
+          <p class="lead">利用每张图片的语义分割数据作为训练样本，提取不同城市的风貌特征，探索人对城市主观印象的量化本质。</p>
+          <p align="center"> <%= link_to "技术详情", style_demo_path, class: "btn btn-lg btn-primary" %> </p>
+        </div>
+        <div class="col-md-5 col-md-pull-8">
+          <img src="/images/home/style.jpg" alt="style" width="500" height="500">
+        </div>
+      </div>
+
+      <!-- /END THE FEATURETTES -->
+
+  <footer>
+      <p class="pull-right"> <a href="#">返回顶部 </a> </p> 
+     </footer>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"><\/script>')</script>
+    
+  <script src="https://cdn.bootcss.com/holder/2.9.4/holder.min.js"></script>
+
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </div>
+  </body>
+

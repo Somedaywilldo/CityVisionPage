@@ -1,0 +1,71 @@
+/* latin */
+@font-face {
+    font-family: 'montserrat';
+    src: url('../font/montserrat-regular-webfont.eot');
+    src: local('montserrat-Regular'),
+		 local('montserrat'),
+		 url('../font/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../font/montserrat-regular-webfont.woff') format('woff'),
+         url('../font/montserrat-regular-webfont.ttf') format('truetype'),
+         url('../font/montserrat-regular-webfont.svg#montserrat') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+body{
+	font-family:"montserrat","Lucida Grande","Hiragino Sans GB","Arial","Microsoft YaHei","STXihei";
+}
+
+.text-ch{
+	font-family:"Hiragino Sans GB","Microsoft YaHei","STXihei";
+}
+
+.region-sign{
+	color:#f41;
+}
+
+.opacity-90{
+	filter:alpha(opacity=90);   
+	-moz-opacity:0.9;   
+	-khtml-opacity: 0.9;   
+	opacity: 0.9;   
+}
+
+.opacity-75{
+	filter:alpha(opacity=75);   
+	-moz-opacity:0.75;   
+	-khtml-opacity: 0.75;   
+	opacity: 0.75;   
+}
+
+.opacity-50{
+	filter:alpha(opacity=50);   
+	-moz-opacity:0.5;   
+	-khtml-opacity: 0.5;   
+	opacity: 0.5;   
+}
+
+.box-shadow{
+	border: 3px solid rgba(0,0,0,0.5);
+	box-shadow:1px 1px 4px #000;
+	-webkit-box-shadow: 1px 1px 4px #000;
+	-moz-box-shadow: 1px 1px 4px #000;
+}
+
+.table-autoscroll thead tr { 
+	display:block; 
+	overflow: auto; 
+} 
+.table-autoscroll tbody { 
+	display: block; 
+	max-height: 200px; 
+	overflow: auto; 
+} 
+.table-autoscroll th { 
+	width:20%; 
+} 
+.table-autoscroll td { 
+	width:20%; 
+} 

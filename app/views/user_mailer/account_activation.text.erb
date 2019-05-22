@@ -1,0 +1,9 @@
+Hi <%= @user.name %>,
+Welcome to the Sample App! Click on the link below to activate your account:
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+
+Someday实验室欢迎您！
+嗨~ <%= @user.name %>,
+欢迎来到Someday实验室，点击下方链接即可激活账户：
+复制该链接到浏览器地址栏：<%=edit_account_activation_url(@user.activation_token,email: @user.email) %>
