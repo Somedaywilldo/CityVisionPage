@@ -1,6 +1,6 @@
 #this is a modified version
 
-source 'https://ruby.taobao.org'
+source 'https://mirrors.tuna.tsinghua.edu.cn/rubygems/'
 
 gem 'faker', '1.6.3'
 gem 'bcrypt',         '3.1.11'
